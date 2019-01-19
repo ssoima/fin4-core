@@ -1,12 +1,14 @@
 module Main.Model exposing (Model, initModel)
 
 import Actions.Model
+import CreateAction.Model
 import CreateToken.Model
 import Main.Context exposing (Context, initContext)
 import Main.Flags exposing (Flags)
 import Main.Routing exposing (Route(..))
 import Material
 import Portfolio.Model
+import Token.Model
 import Tokens.Model
 import UserLogin.Model
 
@@ -17,9 +19,11 @@ type alias Model =
     , mdl : Material.Model
     , showMobileNav : Bool
     , tokens : Tokens.Model.Model
+    , token : Token.Model.Model
     , portfolio : Portfolio.Model.Model
     , actions : Actions.Model.Model
     , createToken : CreateToken.Model.Model
+    , createAction : CreateAction.Model.Model
     , userlogin : UserLogin.Model.Model
     }
 
@@ -31,8 +35,10 @@ initModel flags route =
     , mdl = Material.model
     , showMobileNav = False
     , tokens = Tokens.Model.init
+    , token = Token.Model.init
     , portfolio = Portfolio.Model.init
     , actions = Actions.Model.init
     , createToken = CreateToken.Model.init
+    , createAction = CreateAction.Model.init
     , userlogin = UserLogin.Model.init
     }

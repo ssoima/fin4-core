@@ -1,52 +1,50 @@
 package routes
 
 import (
-	"github.com/FuturICT2/fin4-core/server/routes/middleware"
+	"github.com/FuturICT2/fin4-core/server/datatype"
+	"github.com/FuturICT2/fin4-core/server/routermiddleware"
+	"github.com/FuturICT2/fin4-core/server/tokenhandlers"
 	"github.com/gin-gonic/gin"
 
+	"github.com/FuturICT2/fin4-core/server/commonhandlers"
+	"github.com/FuturICT2/fin4-core/server/userhandlers"
 	api "gopkg.in/appleboy/gin-status-api.v1"
 )
 
-// StartRouter sets up routes
-func (env *Env) StartRouter() *gin.Engine {
+//SetupRouting sets up routes
+func SetupRouting(sc datatype.ServiceContainer) *gin.Engine {
+
 	r := gin.Default()
-	r.Static("./assets", "./public")
+
+	r.Static("/static", "./public")
+	r.Static("/img", "./public/img")
+
 	// html
 	web := r.Group("/")
+	web.Use(routermiddleware.Session())
+	web.Use(routermiddleware.SessionSetUser(sc.UserService))
 	{
-		web.GET("/", env.Index)
+		commonhandlers.InjectHandlers(sc, web)
 	}
+
 	// website specific api
 	wapi := r.Group("/wapi")
-	wapi.Use(middleware.Session())
-	wapi.Use(middleware.SessionSetUser(env.DB))
-	wapi.Use(middleware.CheckCsrfToken())
+	wapi.Use(routermiddleware.Session())
+	wapi.Use(routermiddleware.SessionSetUser(sc.UserService))
+	wapi.Use(routermiddleware.CheckCsrfToken())
 	{
-		mustAuth := middleware.SessionMustAuth()
-		wapi.GET("/csrf", middleware.SetCsrfToken())
-		wapi.GET("/session", mustAuth, env.SessionGet)
-		wapi.POST("/login", env.UserLogin)
-		wapi.POST("/logout", mustAuth, env.UserLogout)
-		wapi.GET("/tokens", env.TokensList)
-		wapi.GET("/people", env.PeopleList)
-		wapi.GET("/portfolio/positions", mustAuth, env.Portfolio)
-		wapi.POST("/create-token", mustAuth, env.CreateToken)
-		wapi.GET("/like/:tokenID", mustAuth, env.DoLike)
-		wapi.GET("/unlike/:tokenID", mustAuth, env.DoUnLike)
+		wapi.GET("/csrf", routermiddleware.SetCsrfToken())
+		userhandlers.InjectHandlers(sc, wapi)
+		tokenhandlers.InjectHandlers(sc, wapi)
 	}
 
-	// Ethereum specific APIs
-	eth := r.Group("/eth")
-	eth.Use(middleware.CheckCsrfToken())
-	{
-	}
-
-	// Core API
+	// API
 	v1 := r.Group("/api")
-	v1.Use(middleware.HeadersNoCache())
-	v1.Use(middleware.HeadersCors())
+	v1.Use(routermiddleware.HeadersNoCache())
+	v1.Use(routermiddleware.HeadersCors())
 	{
-		v1.GET("/status", middleware.APIAuth(), api.StatusHandler)
+		v1.GET("/status", routermiddleware.APIAuth(), api.StatusHandler)
 	}
+
 	return r
 }

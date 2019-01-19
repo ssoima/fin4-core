@@ -1,5 +1,6 @@
 module Actions.Model exposing (Model, init)
 
+import Dict exposing (Dict)
 import Material
 import Model.Actions exposing (Actions)
 

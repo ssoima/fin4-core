@@ -2,6 +2,7 @@ module Main.Msg exposing (Msg(..))
 
 import Actions.Msg
 import Common.Json exposing (EmptyResponse)
+import CreateAction.Msg
 import CreateToken.Msg
 import Homepage.Homepage
 import Http
@@ -9,6 +10,7 @@ import Main.User exposing (User)
 import Material
 import Navigation exposing (Location)
 import Portfolio.Msg
+import Token.Msg
 import Tokens.Msg
 import UserLogin.Msg
 import Window
@@ -22,9 +24,11 @@ type Msg
     | OnWindowResize Window.Size
     | Homepage Homepage.Homepage.Msg
     | Tokens Tokens.Msg.Msg
+    | Token Token.Msg.Msg
     | Portfolio Portfolio.Msg.Msg
     | Actions Actions.Msg.Msg
     | CreateToken CreateToken.Msg.Msg
-    | UserLogin UserLogin.Msg.Msg
+    | CreateAction CreateAction.Msg.Msg
+    | UserLoginMsg UserLogin.Msg.Msg
     | UserLogout
     | OnLogoutResponse (Result Http.Error EmptyResponse)

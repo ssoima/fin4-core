@@ -10,6 +10,7 @@ import Main.Routing
         ( Route(..)
         , actionsPath
         , homepagePath
+        , newActionPath
         , newTokenPath
         , portfolioPath
         , tokensPath
@@ -22,12 +23,12 @@ render model =
     div [ bhStyle ]
         [ div []
             [ a
-                [ href tokensPath
+                [ href actionsPath
                 , bhNavItemStyle
-                , activeRouteStyle (model.context.route == TokensRoute)
+                , activeRouteStyle (model.context.route == ActionsRoute)
                 , style [ ( "width", "33%" ) ]
                 ]
-                [ Icon.view "home"
+                [ Icon.view "group_work"
                     [ Icon.size36
                     ]
                 ]

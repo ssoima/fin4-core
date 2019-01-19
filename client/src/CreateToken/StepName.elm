@@ -29,7 +29,7 @@ render ctx model =
                 [ text "Enter name" ]
             , input
                 [ inputStyle
-                , placeholder "e.g Moon"
+                , placeholder "e.g SchoolCoin"
                 , value model.name
                 , onInput SetName
                 ]
@@ -45,7 +45,7 @@ render ctx model =
                 [ text "Enter symbol" ]
             , input
                 [ inputStyle
-                , placeholder "e.g MNN"
+                , placeholder "e.g SCL"
                 , value model.symbol
                 , onInput SetSymbol
                 ]
@@ -59,11 +59,11 @@ render ctx model =
                     , ( "padding-left", "2px" )
                     ]
                 ]
-                [ text "Enter purpose" ]
+                [ text "Enter action purpose" ]
             , textarea
                 [ textareaStyle
                 , value model.description
-                , placeholder "e.g Let us go to the moon"
+                , placeholder "e.g Take a picture of a school, post it here with it's location and get rewarded with SchoolCoin"
                 , onInput SetDescription
                 , rows 5
                 ]

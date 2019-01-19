@@ -4,7 +4,7 @@ import (
 	"errors"
 	"math/big"
 
-	"github.com/FuturICT2/fin4-core/server/util"
+	"github.com/FuturICT2/fin4-core/server/env"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
 	"github.com/ethereum/go-ethereum/accounts/keystore"
@@ -30,14 +30,14 @@ func MustNewEthereum() *Ethereum {
 	if err != nil {
 		logrus.Fatal("Failed to connect to the Ethereum client: %v", err)
 	}
-	// keys
-	rawKey := util.MustGetenv("ETH_KEY_RAW")
+	// server key
+	rawKey := env.MustGetenv("ETH_KEY_RAW")
 	rawKeyECDSA, err := crypto.HexToECDSA(rawKey)
 	if err != nil {
 		logrus.Fatal("Something wrong with server private key.", err)
 	}
 	ks := keystore.NewKeyStore(
-		util.MustGetenv("ETH_KEY_STORE_DIR"),
+		env.MustGetenv("ETH_KEY_STORE_DIR"),
 		keystore.LightScryptN,
 		keystore.LightScryptP)
 	ks.ImportECDSA(rawKeyECDSA, "passphrase")
@@ -50,7 +50,7 @@ func MustNewEthereum() *Ethereum {
 	gAlloc := map[common.Address]core.GenesisAccount{
 		auth.From: {Balance: big.NewInt(10000000000)},
 	}
-	sim := backends.NewSimulatedBackend(gAlloc, 10393939)
+	sim := backends.NewSimulatedBackend(gAlloc, 21000)
 	return &Ethereum{
 		rpc:      conn,
 		sim:      sim,
@@ -59,28 +59,10 @@ func MustNewEthereum() *Ethereum {
 	}
 }
 
-// GetBlockNumber returns best blocknumber in the blockchain
+// CreateNewAddress returns best blocknumber in the blockchain
 func (b *Ethereum) CreateNewAddress() (string, error) {
-	acc, err := b.keystore.NewAccount("whatever")
+	acc, err := b.keystore.NewAccount("demo")
 	return acc.Address.String(), err
-}
-
-// DeployNewToken deployes new token to Ethereum from server account
-func (b *Ethereum) DeployNewToken(
-	initialSupply *big.Int,
-	tokenName string,
-	decimals uint8,
-	tokenSymbol string,
-) (common.Address, *types.Transaction, error) {
-	address, tx, _, err := DeployToken(
-		b.auth, b.sim, initialSupply, tokenName, decimals, tokenSymbol)
-	if err != nil {
-		logrus.WithFields(logrus.Fields{
-			"error": err.Error(),
-		}).Error("ethereum:DeployNewToken:e1")
-		return address, nil, errors.New("Error deploying token contract to Ethereum")
-	}
-	return address, tx, nil
 }
 
 // DeployMintable deployes new Mintable token to Ethereum from server account
@@ -91,7 +73,13 @@ func (b *Ethereum) DeployMintable(
 	minter common.Address,
 ) (common.Address, *types.Transaction, error) {
 	address, tx, _, err := DeployMintable(
-		b.auth, b.rpc, name_, symbol_, decimals_, minter)
+		b.auth,
+		b.sim,
+		name_,
+		symbol_,
+		decimals_,
+		minter,
+	)
 	if err != nil {
 		logrus.WithFields(logrus.Fields{
 			"error": err.Error(),
@@ -99,4 +87,29 @@ func (b *Ethereum) DeployMintable(
 		return address, nil, errors.New("Error deploying token contract to Ethereum")
 	}
 	return address, tx, nil
+}
+
+// DeployMintable deployes new Mintable token to Ethereum from server account
+func (b *Ethereum) Mint(
+	tokenAddress common.Address,
+	toAddress common.Address,
+	amount int64,
+) (*types.Transaction, error) {
+	mintable, err := NewMintable(tokenAddress, b.sim)
+	if err != nil {
+		logrus.WithFields(logrus.Fields{
+			"error": err.Error(),
+		}).Error("ethereum:Mint:1")
+		return nil, err
+	}
+	// @TODO change b.auth to the address of the user who is minting the new
+	// tokens i.e claim approver
+	txAddress, err := mintable.Mint(b.auth, toAddress, big.NewInt(amount))
+	if err != nil {
+		logrus.WithFields(logrus.Fields{
+			"error": err.Error(),
+		}).Error("ethereum:Mint:2")
+		return nil, err
+	}
+	return txAddress, nil
 }
