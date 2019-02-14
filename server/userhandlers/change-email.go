@@ -6,10 +6,10 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/FuturICT2/fin4-core/server/appurl"
-	"github.com/FuturICT2/fin4-core/server/auth"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/emailer"
+	"fin4-core/server/appurl"
+	"fin4-core/server/auth"
+	"fin4-core/server/datatype"
+	"fin4-core/server/emailer"
 )
 
 //ChangeEmail initiates logged in user email change process

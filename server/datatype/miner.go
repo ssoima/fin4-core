@@ -1,6 +1,6 @@
 package datatype
 
-import "github.com/FuturICT2/fin4-core/server/decimaldt"
+import "fin4-core/server/decimaldt"
 
 // Miner user type
 type Miner struct {

@@ -1,7 +1,7 @@
 package assetservice
 
 import (
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/datatype"
 )
 
 //IsOracle checks whether email is already registered or not

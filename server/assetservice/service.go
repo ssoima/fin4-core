@@ -1,6 +1,6 @@
 package assetservice
 
-import "github.com/FuturICT2/fin4-core/server/dbservice"
+import "fin4-core/server/dbservice"
 
 //Service defines asset service type
 type Service struct {

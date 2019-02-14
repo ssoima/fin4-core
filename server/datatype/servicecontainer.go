@@ -1,6 +1,6 @@
 package datatype
 
-import "github.com/FuturICT2/fin4-core/server/ethereum"
+import "fin4-core/server/ethereum"
 
 //ServiceContainer defines our service container type
 type ServiceContainer struct {

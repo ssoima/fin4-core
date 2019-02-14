@@ -3,9 +3,9 @@ package assetservice
 import (
 	"database/sql"
 
-	"github.com/FuturICT2/fin4-core/server/apperrors"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/decimaldt"
+	"fin4-core/server/apperrors"
+	"fin4-core/server/datatype"
+	"fin4-core/server/decimaldt"
 )
 
 // FindUserBalance finds user's balance of given asset

@@ -17,7 +17,7 @@ jobs:
     #### expecting it in the form of
     ####   /go/src/github.com/circleci/go-tool
     ####   /go/src/bitbucket.org/circleci/go-tool
-    working_directory: /go/src/github.com/FuturICT2/fin4-core
+    working_directory: /go/src/fin4-core
     steps:
       - checkout
 

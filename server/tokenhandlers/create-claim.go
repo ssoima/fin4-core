@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/FuturICT2/fin4-core/server/appstrings"
-	"github.com/FuturICT2/fin4-core/server/auth"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/filestorage"
-	"github.com/FuturICT2/fin4-core/server/img"
+	"fin4-core/server/appstrings"
+	"fin4-core/server/auth"
+	"fin4-core/server/datatype"
+	"fin4-core/server/filestorage"
+	"fin4-core/server/img"
 	"github.com/gin-gonic/gin"
 	"github.com/lytics/logrus"
 )

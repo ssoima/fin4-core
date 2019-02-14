@@ -2,8 +2,8 @@ package userservice
 
 import (
 	"github.com/asaskevich/govalidator"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/dbservice"
+	"fin4-core/server/datatype"
+	"fin4-core/server/dbservice"
 )
 
 //Service defines service type

@@ -1,17 +1,18 @@
 package routes
 
 import (
-	"github.com/FuturICT2/fin4-core/server/assethandlers"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/routermiddleware"
-	"github.com/FuturICT2/fin4-core/server/timelinehandlers"
-	"github.com/FuturICT2/fin4-core/server/tokenhandlers"
+	"fin4-core/server/assethandlers"
+	"fin4-core/server/datatype"
+	"fin4-core/server/routermiddleware"
+	"fin4-core/server/timelinehandlers"
+	"fin4-core/server/tokenhandlers"
+	"fin4-core/server/bysonhandlers"
 	"github.com/gin-gonic/gin"
 
 
 
-	"github.com/FuturICT2/fin4-core/server/commonhandlers"
-	"github.com/FuturICT2/fin4-core/server/userhandlers"
+	"fin4-core/server/commonhandlers"
+	"fin4-core/server/userhandlers"
 	api "gopkg.in/appleboy/gin-status-api.v1"
 )
 
@@ -40,6 +41,7 @@ func SetupRouting(sc datatype.ServiceContainer) *gin.Engine {
 		wapi.GET("/csrf", routermiddleware.SetCsrfToken())
 		userhandlers.InjectHandlers(sc, wapi)
 		tokenhandlers.InjectHandlers(sc, wapi)
+		bysonhandlers.InjectHandlers(sc, wapi)
 		// V0.2 for assets
 		assethandlers.InjectHandlers(sc, wapi)
 		timelinehandlers.InjectHandlers(sc, wapi)

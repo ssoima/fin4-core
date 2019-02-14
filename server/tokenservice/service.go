@@ -1,7 +1,7 @@
 package tokenservice
 
 import (
-	"github.com/FuturICT2/fin4-core/server/dbservice"
+	"fin4-core/server/dbservice"
 )
 
 //Service defines service type

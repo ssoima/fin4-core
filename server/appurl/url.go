@@ -3,7 +3,7 @@ package appurl
 import (
 	"strings"
 
-	"github.com/FuturICT2/fin4-core/server/env"
+	"fin4-core/server/env"
 )
 
 var baseURL string

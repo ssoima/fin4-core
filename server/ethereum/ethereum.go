@@ -3,7 +3,7 @@ package ethereum
 import (
 	"math/big"
 
-	"github.com/FuturICT2/fin4-core/server/env"
+	"fin4-core/server/env"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/accounts/abi/bind/backends"
 	"github.com/ethereum/go-ethereum/accounts/keystore"
@@ -13,6 +13,7 @@ import (
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 	"github.com/lytics/logrus"
+	"log"
 )
 
 // Ethereum ethereum struct to implement crypto interface
@@ -25,14 +26,15 @@ type Ethereum struct {
 
 // MustNewEthereum create new Ethereum interface, panic if no connection
 func MustNewEthereum() *Ethereum {
-	conn, err := ethclient.Dial("https://rinkeby.infura.io/")
+	conn, err := ethclient.Dial("http://127.0.0.1:7545") //ethclient.Dial("https://rinkeby.infura.io/")
 
 	if err != nil {
 		logrus.Fatal("Failed to connect to the Ethereum client: %v", err)
 		return nil
   }
 	// server key
-	rawKey := env.MustGetenv("ETH_KEY_RAW")
+	rawKey := "f212fe8e6f935ee29dba7edc3da12af967fff2f8920505835cf2d0640da6c7fb"//env.MustGetenv("ETH_KEY_RAW")
+	log.Println(rawKey)
 	rawKeyECDSA, err := crypto.HexToECDSA(rawKey)
 	if err != nil {
 		logrus.Fatal("Something wrong with server private key.", err)

@@ -3,7 +3,7 @@ package models
 import (
 	"testing"
 
-	"github.com/FuturICT2/fin4-core/server/decimaldt"
+	"fin4-core/server/decimaldt"
 )
 
 func Test_Fees(t *testing.T) {

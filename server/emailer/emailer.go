@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/datatype"
 )
 
 // EmailerConfig specifies configuration options and credentials for accessing Amazon SES.

@@ -3,8 +3,8 @@ package userservice
 import (
 	"time"
 
-	"github.com/FuturICT2/fin4-core/server/appstrings"
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/appstrings"
+	"fin4-core/server/datatype"
 	"github.com/lytics/logrus"
 )
 

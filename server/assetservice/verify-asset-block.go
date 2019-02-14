@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"errors"
 
-	"github.com/FuturICT2/fin4-core/server/apperrors"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/decimaldt"
+	"fin4-core/server/apperrors"
+	"fin4-core/server/datatype"
+	"fin4-core/server/decimaldt"
 	"github.com/ethereum/go-ethereum/common"
 )
 

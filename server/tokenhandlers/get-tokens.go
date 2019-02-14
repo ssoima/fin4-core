@@ -4,8 +4,8 @@ import (
 	"net/http"
 	"log"
 
-	"github.com/FuturICT2/fin4-core/server/auth"
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/auth"
+	"fin4-core/server/datatype"
 	"github.com/gin-gonic/gin"
 )
 

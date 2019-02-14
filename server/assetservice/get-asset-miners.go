@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/FuturICT2/fin4-core/server/apperrors"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/decimaldt"
+	"fin4-core/server/apperrors"
+	"fin4-core/server/datatype"
+	"fin4-core/server/decimaldt"
 )
 
 // GetAssetMiners finds all user's favored assits

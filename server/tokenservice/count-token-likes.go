@@ -1,6 +1,6 @@
 package tokenservice
 
-import "github.com/FuturICT2/fin4-core/server/datatype"
+import "fin4-core/server/datatype"
 
 // CountTokenLikes finds all assets
 func (db *Service) CountTokenLikes(tokenID datatype.ID) int {

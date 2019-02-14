@@ -7,7 +7,7 @@ import (
 
 	// we need to import mysql
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/FuturICT2/fin4-core/server/env"
+	"fin4-core/server/env"
 	migrate "github.com/rubenv/sql-migrate"
 	"github.com/sirupsen/logrus"
 )

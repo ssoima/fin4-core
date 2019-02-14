@@ -3,9 +3,9 @@ package assethandlers
 import (
 	"net/http"
 
-	"github.com/FuturICT2/fin4-core/server/auth"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/dbservice"
+	"fin4-core/server/auth"
+	"fin4-core/server/datatype"
+	"fin4-core/server/dbservice"
 	"github.com/gin-gonic/gin"
 )
 

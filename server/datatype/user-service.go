@@ -1,7 +1,7 @@
 package datatype
 
 import (
-	"github.com/FuturICT2/fin4-core/server/decimaldt"
+	"fin4-core/server/decimaldt"
 )
 
 //UserService defines user service interface

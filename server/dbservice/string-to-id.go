@@ -3,7 +3,7 @@ package dbservice
 import (
 	"strconv"
 
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/datatype"
 )
 
 // StringToID converts string to ID

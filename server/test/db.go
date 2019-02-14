@@ -5,9 +5,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/FuturICT2/fin4-core/server/appstrings"
-	"github.com/FuturICT2/fin4-core/server/dbservice"
-	"github.com/FuturICT2/fin4-core/server/env"
+	"fin4-core/server/appstrings"
+	"fin4-core/server/dbservice"
+	"fin4-core/server/env"
 )
 
 var testDbTables = []string{

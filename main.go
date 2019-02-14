@@ -3,25 +3,25 @@ package main
 import (
 	"strings"
 
-	"github.com/FuturICT2/fin4-core/server/assetservice"
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/dbservice"
-	"github.com/FuturICT2/fin4-core/server/emailer"
-	"github.com/FuturICT2/fin4-core/server/env"
-	"github.com/FuturICT2/fin4-core/server/ethereum"
-	"github.com/FuturICT2/fin4-core/server/filestorage"
-	"github.com/FuturICT2/fin4-core/server/logger"
-	"github.com/FuturICT2/fin4-core/server/routes"
-	"github.com/FuturICT2/fin4-core/server/timelineservice"
-	"github.com/FuturICT2/fin4-core/server/tokenservice"
-	"github.com/FuturICT2/fin4-core/server/userservice"
+	"fin4-core/server/assetservice"
+	"fin4-core/server/datatype"
+	"fin4-core/server/dbservice"
+	"fin4-core/server/emailer"
+	"fin4-core/server/env"
+	"fin4-core/server/ethereum"
+	"fin4-core/server/filestorage"
+	"fin4-core/server/logger"
+	"fin4-core/server/routes"
+	"fin4-core/server/timelineservice"
+	"fin4-core/server/tokenservice"
+	"fin4-core/server/userservice"
 )
 
 func main() {
 	environment := strings.ToLower(env.MustGetenv("ENVIRONMENT"))
 
 	//TODO this should be changed ASAP
-	baseDir := "$GOPATH/src/github.com/FuturICT2/fin4-core"
+	baseDir := "/home/parallels/Projects/goprojects/src/fin4-core"
 	env.Load(baseDir, false)
 
 	cfg := datatype.Config{

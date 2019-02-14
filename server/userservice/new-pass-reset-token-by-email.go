@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/datatype"
 )
 
 // NewPassResetTokenByEmail creates a new reset password token for given email

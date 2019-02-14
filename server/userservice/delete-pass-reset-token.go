@@ -1,6 +1,6 @@
 package userservice
 
-import "github.com/FuturICT2/fin4-core/server/datatype"
+import "fin4-core/server/datatype"
 
 // DeletePassResetToken deletes a pass-reset token
 func (db *Service) DeletePassResetToken(userID datatype.ID, token string) bool {

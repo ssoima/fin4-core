@@ -1,8 +1,8 @@
 package timelinehandlers
 
 import (
-	"github.com/FuturICT2/fin4-core/server/datatype"
-	"github.com/FuturICT2/fin4-core/server/routermiddleware"
+	"fin4-core/server/datatype"
+	"fin4-core/server/routermiddleware"
 	"github.com/gin-gonic/gin"
 )
 

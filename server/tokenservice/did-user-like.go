@@ -1,6 +1,6 @@
 package tokenservice
 
-import "github.com/FuturICT2/fin4-core/server/datatype"
+import "fin4-core/server/datatype"
 
 // DidUserLike returns true or false based on if user liked a token
 func (db *Service) DidUserLike(userID datatype.ID, tokenID datatype.ID) bool {

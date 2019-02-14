@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^0.5.2;
 
 import "../token/ERC20/ERC20Mintable.sol";
 /**
@@ -18,7 +18,7 @@ contract Mintable is ERC20Mintable {
   /**
    * @dev Constructor that gives msg.sender all of existing tokens.
    */
-  constructor(string name_, string symbol_, uint8 decimals_, address minter) public {
+  constructor(string memory name_, string memory symbol_, uint8 decimals_, address minter) public {
     name = name_;
     symbol = symbol_;
     decimals = decimals_;

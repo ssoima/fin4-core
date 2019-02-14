@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/FuturICT2/fin4-core/server/auth"
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/auth"
+	"fin4-core/server/datatype"
 )
 
 //GetUserFavoriteAssets get user's favorite assets

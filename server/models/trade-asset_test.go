@@ -3,7 +3,7 @@ package models_test
 import (
 	"testing"
 
-	"github.com/FuturICT2/fin4-core/server/models"
+	"fin4-core/server/models"
 )
 
 func Test_FindAssets(t *testing.T) {

@@ -72,7 +72,7 @@ Best is to store this in ~/.bashrc, so that this automatically set whenever you 
 
 ## Set up
 ```bash
-$ git clone https://github.com/FuturICT2/fin4-core.git
+$ git clone https://fin4-core.git
 $ cd fin4-core
 $ go get
 $ npm install: install server dependencies
@@ -126,7 +126,7 @@ $ make cover-view
 In the following we document the basic execution of the server and the elm app are explained. Detailed information can/ will be found in the respective packages.
 
 ## fin4 Server
-The main functioning of the server is explained in the [server](https://github.com/FuturICT2/fin4-core/tree/master/server) package.
+The main functioning of the server is explained in the [server](https://fin4-core/tree/master/server) package.
 ### Entry point - main.go
 When executing
 ```bash
@@ -146,7 +146,7 @@ In particular, main.go is executed which
 
 <a name="contribution"></a>
 # Contribute!
-We are looking for collaboration from the Open Source community. The project needs enhancements regarding code quality, documentation, and testing. To contribute to the project please take a look at [open issues](https://github.com/FuturICT2/fin4-core/issues).
+We are looking for collaboration from the Open Source community. The project needs enhancements regarding code quality, documentation, and testing. To contribute to the project please take a look at [open issues](https://fin4-core/issues).
 <!--
 [Here](CONTRIBUTIONS.md) you can find more details on the architecture of the code and how to run the development environment on your local machine.
 -->

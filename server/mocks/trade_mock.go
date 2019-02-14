@@ -1,6 +1,6 @@
 package models
 
-import "github.com/FuturICT2/fin4-core/server/datatype"
+import "fin4-core/server/datatype"
 
 // TradeModelMock TradeModelMock datatype
 type TradeModelMock struct {

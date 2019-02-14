@@ -1,7 +1,7 @@
 {
     "version": "1.0.0",
     "summary": "",
-    "repository": "https://github.com/FuturICT2/fin4-core.git",
+    "repository": "https://fin4-core.git",
     "license": "NONE",
     "source-directories": [
         "client/src"

@@ -5,7 +5,7 @@ import (
 
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/FuturICT2/fin4-core/server/appstrings"
+	"fin4-core/server/appstrings"
 )
 
 const headerName = "X-Csrf-Token"

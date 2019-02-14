@@ -1,7 +1,7 @@
 package assetservice
 
 import (
-	"github.com/FuturICT2/fin4-core/server/datatype"
+	"fin4-core/server/datatype"
 )
 
 // DidUserLikeBlock checks whether user liked a block or not

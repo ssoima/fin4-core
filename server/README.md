@@ -15,7 +15,7 @@ The server currently has three main purposes
   - Deploying fin4 tokens to Ethereum (ganache/ rinkeby/ mainnet)
 
 ### APIs
-Communication with the server is done via http. The entry point for all http requests is the [routes/routes.go](https://github.com/FuturICT2/fin4-core/blob/master/server/routes/routes.go) code. All /wapi/ requests are forwarded to [userhandlers/routing.go](https://github.com/FuturICT2/fin4-core/blob/master/server/userhandlers/routing.go) and [tokenhandlers/routing.go](https://github.com/FuturICT2/fin4-core/blob/master/server/tokenhandlers/routing.go).
+Communication with the server is done via http. The entry point for all http requests is the [routes/routes.go](https://fin4-core/blob/master/server/routes/routes.go) code. All /wapi/ requests are forwarded to [userhandlers/routing.go](https://fin4-core/blob/master/server/userhandlers/routing.go) and [tokenhandlers/routing.go](https://fin4-core/blob/master/server/tokenhandlers/routing.go).
 
 The following methods currently exist
 
@@ -34,7 +34,7 @@ All /wapi/ requests need to provide the session cookie to the server, which was 
 
 
 # Documentation
-For a detailed documentation of all functions, check out: https://godoc.org/github.com/FuturICT2/fin4-core/server/
+For a detailed documentation of all functions, check out: https://godoc.org/fin4-core/server/
 
 <!--
 markdown syntax https://help.github.com/articles/page-build-failed-markdown-errors/

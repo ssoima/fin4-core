@@ -18,7 +18,7 @@ export GOBIN=$GOPATH/bin
 
 # Install Finance 4.0 demonstrator
 ```bash
-$ git clone https://github.com/FuturICT2/fin4-core.git
+$ git clone https://fin4-core.git
 $ cd fin4-core
 $ go get
 $ npm install: install server dependencies
